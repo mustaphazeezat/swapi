@@ -51,7 +51,6 @@ const Home = () => {
     if (dataLoading) {
         return <div className='loader-wrapper'><Loader /></div>
     }
-
   return (
     <>
         {

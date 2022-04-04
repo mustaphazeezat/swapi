@@ -7,6 +7,7 @@ const Table = ({ characters, genders }) => {
     const [list, setList] = useState(characters);
     const [sortOrder, setSortOrder] = useState('desc');
     const [selected, setSelected] = useState({ title: 'all' });
+
     function heightArray(character) {
       return character
         .filter((item) => !isNaN(parseInt(item?.height, 10)))
@@ -28,34 +29,37 @@ const Table = ({ characters, genders }) => {
   
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selected]);
-    function customSort(selector, order = 'desc') {
-      return (a, b) => {
-        const aItem = selector(a);
-        const bItem = selector(b);
     
-        if (order === "asc")
-          return aItem?.localeCompare(bItem, undefined, {
+      
+      function customSort(selector, order = "desc") {
+        return (a, b) => {
+          const aItem = selector(a);
+          const bItem = selector(b);
+      
+          if (order === "asc")
+            return aItem?.localeCompare(bItem, undefined, {
+              numeric: true,
+              sensitivity: "base"
+            });
+      
+          return -aItem?.localeCompare(bItem, undefined, {
             numeric: true,
             sensitivity: "base"
           });
+        };
+      }
+  
+      const handleSort = (sortValue) => {
+        const updatedSortOrder = sortOrder === "desc" ? "asc" : "desc";
     
-        return -aItem?.localeCompare(bItem, undefined, {
-          numeric: true,
-          sensitivity: "base"
-        });
+        const currentList = list;
+        const updatedList = currentList.sort(
+          customSort((a) => a?.[`${sortValue}`], updatedSortOrder)
+        );
+    
+        setList(updatedList);
+        setSortOrder(updatedSortOrder);
       };
-    }
-  
-    const handleSort = (sortValue) => {
-      const updatedSortOrder = sortOrder === 'desc' ? 'desc' : 'desc';
-  
-      const currentList = list;
-      const updatedList = currentList.sort(
-        customSort((a) => a?.[`${sortValue}`], updatedSortOrder)
-      );
-      setList(updatedList);
-      setSortOrder(updatedSortOrder);
-    };
   
     return (
       <>

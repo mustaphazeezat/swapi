@@ -1,28 +1,35 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
+# This is a React project created with Star wars API 
+It was created with with Star wars API and hosted on Heroku which can be access [https://azi-starwars.herokuapp.com](https://azi-starwars.herokuapp.com/).
 
 In the project directory, you can run:
-
-### `yarn`
+### `yarn` 
 
 then,
 ### `yarn dev`
 
-Runs the app in the development mode.\
+This runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+## This app was deployed on Heroku
 
+[https://azi-starwars.herokuapp.com](https://azi-starwars.herokuapp.com/)
 
-## This app was deployed on Herroku
+## General information
+
+This app is built with Reactjs, using contextApi, SASS for styling, and axio for fetching data . In the src folder, you can find the following folders
+
+- components
+- context
+- pages
+- styles
+
+There is an helpers.js file containing the helper functions
+
+In the Public folder, you will find the svg sprite file, icon.svg.
 

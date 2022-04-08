@@ -60,6 +60,7 @@ const Table = ({ characters, genders }) => {
         setList(updatedList);
         setSortOrder(updatedSortOrder);
       };
+   
   
     return (
       <>
